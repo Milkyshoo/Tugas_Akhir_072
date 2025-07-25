@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Index.css">
+    <link rel="stylesheet" href="./style_news.css">
+     <style>
+    * {
+    box-sizing: border-box;
+}
+
+img {
+    width: 500px;
+    height: 300px;
+}
+
+body {
+    margin: 0;
+    font-family: 'trebuchet ms', 'lucida sans unicode', 'lucida grande', 'lucida sans', Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p.description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ffffff;
+    font-size: 1.2em;
+    text-align: center;
+    user-select: none;
+}
+
+.gallery-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+    background:#2c3e50;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    outline: none;
+}
+
+.card video {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-bottom: 1px solid #e5e7eb;
+    user-select: none;
+    transition: transform 0.3s ease;
+    
+}
+
+.card:hover video,
+.card:focus-within video {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 1.25em 1.5em;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 1.25em;
+    color: #ffffff;
+    margin: 0 0.5em 0;
+    user-select: none;
+}
+
+.card-desc {
+    font-size: 1em;
+    color: #ffffff;
+    margin: 0;
+    user-select: none;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    h1 {
+        font-size: 2.75em;
+    }
+    p.description {
+        font-size: 1.125em;
+    }
+}
+
+a {
+    text-align: center;
+}
+
+iframe {
+    justify-content: center;
+}
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery iframe {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery iframe:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .img-berita6{
+        width: 400px;
+        height: 480px;
+    }
+    /* reset dan base */
+*,
+*::before,
+*::after {
+    box-sizing:border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 2px solid #a5b4fc;
+    outline-offset: 2px;
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-track {
+    background: #6366f1;
+    border-radius: 4px;
+}
+
+
+/* header */
+.header {
+    position: sticky;
+    top: 0;
+    height: 64px;
+    backdrop-filter: blur(16px);
+    background: rgba(30, 41, 59, 0.75);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-weight: 900;
+    font-size: clamp(1.5rem, 2vw,2rem);
+    background: linear-gradient(135deg, #6366f1 0%, #4ade80 100% );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+.nav {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: #e2e8f0;
+    transition: background 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    background: rgba(99, 102, 241, 0.3);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+}
+
+.hero {
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin: 0 24px 64px;
+    padding: 64px 32px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
+    background-image: url(./Foto/header1.jpg);
+    background-position: cover;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #000000 0%, #2a0061 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    margin-bottom: 36px;
+    color: #000000;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    padding: 16px 48px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: #e0f2fe;
+    background: linear-gradient(135deg, #6366f1 0%, #4ade80 100%);
+    box-shadow: 0 6px 15px rgba(99, 102, 241, 0.6);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2 ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+    background: linear-gradient(135deg, #4ade80 0%, #6366f1 100%);
+    box-shadow: 0 9px 25px rgba(99, 102, 241, 0.9);
+    outline: none;
+    transform: translateY(-3px);
+}
+
+.features {
+    text-align: center;
+}
+
+.section-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 900;
+    margin-bottom: 48px;
+    user-select: none;
+    color: #c7d2fe;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 48px;
+    justify-items: center;
+}
+.profil-diri {
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    transition: box-shadow 0.3s ease, transform 0.25s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+}
+
+.container {
+    text-align: center;
+    align-items: center;
+}
+
+.card {
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    max-width: 1200px;
+    transition: box-shadow 0.3s ease, transform 0.25s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+.berita_pict {
+    justify-content: center;
+    border-radius: 24px;
+}
+.features-card {
+    background: rgba(30, 41, 59, 0.8);
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.7);
+    max-width: 320px;
+    transition: box-shadow 0.3s ease, transform 0.25s ease;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.features-card:hover,
+.features-card:focus-visible {
+    box-shadow: 0 20px 50px rgba(99, 102, 241, 0.7);
+    outline: none;
+    transform: translateY(-6px);
+}
+
+.features-icon {
+    font-size: 64px;
+    color: #4ade80;
+    margin-bottom: 24px;
+    user-select: none;
+}
+
+.features-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #a5b4fc;
+    user-select: none;
+    align-items: center;
+}
+
+.features-card p {
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+
+/* footer */
+.footer {
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(16px);
+    padding: 16px 24px;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    user-select: none;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.footer p {
+    margin: 0;
+}
+
+.social-link {
+    color: #94a3b8;
+    font-size: 28px;
+    margin-left: 16px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover,
+.social-link:focus-visible {
+    color: #6366f1;
+    outline: none;
+}
+
+
+/* Responsive */
+@media (max-width: 767px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    .social-link {
+        margin-left: 0;
+    }
+}
+  </style>
+</head>
+<body>
+     <header role="banner" class="header">
+        <div class="container header-container">
+            <a href="./index.html" class="brand" aria-label="My homepage">Zheetopia</a>
+            <nav role="navigation" aria-label="Primary navigation" class="nav"></nav>
+            <a href="./index.html" class="nav-link" tabindex="0">Home</a>
+            <a href="./news.html" class="nav-link" tabindex="0">News</a>
+            <a href="./galerifoto.html" class="nav-link" tabindex="0">Foto</a>
+            <a href="./galerivideo.html" class="nav-link" tabindex="0">Video</a>
+            <a href="./profile.html" class="nav-link" tabindex="0">About</a>
+            <a href="./contact.html" class="nav-link" tabindex="0">Contact</a>
+        </div>
+    </header>
+
+    <main class="container" role="main" aria-label="Galeri Foto">
+    <h1 style="color: aliceblue;">Berita Terkini Di indonesia</h1>
+    <p>Berita terkini terkait seputar fauna di Indonesia dimulai dari berita penyelundupan hewan eksotik, kemunculan hewan menggemaskan, dan lain sebagainya dengan menampilkan dokumentasi serta link berita informasi yang lebih lengkapnya.</p>
+    <br><br>
+    <section>
+        <article class="card" tabindex="0" aria-label="">
+            <img class="berita_pict" src="./foto/beacukai.jpg" alt="Teknologi" loading="lazy"/>
+            <div class="card-body">
+                <h2>Moge hingga Hewan Eksotis Diselundupkan ke Aceh via Laut</h2>
+                <p>Serangkaian operasi pengawasan dan penindakan yang dilakukan Bea Cukai bersama instansi terkait lainnya sukses membongkar penyelundupan impor ilegal barang mewah. Di antaranya, penyelundupan Motor Gede (Moge), satwa eksotirs, komoditas hasil tembakau (rokok) ilegal, hingga narkotika yang berpotensi merugikan negara hingga triliunan rupiah. "Operasi penindakan dilakukan Bea Cukai Langsa bersinergi kuat dengan aparat TNI, Polri, dan berbagai pihak terkait lainnya serta didukung peran masyarakat," sebut Kepala Kantor Bea Cukai Langsa, Sulaiman. Hal ini disampaikan Sulaiman saat menggelar konfrensi pers terkait pengungkapan kasus barang impor ilegal sepmor jenis Moge dan sejumlah hewan eksotis di Madat, Aceh Timur, berapa hari lalu, di Kantor Bea Cukai setempat, Selasa (17/6/2025)... <a href="https://www.ikea.co.id/in/inspirasi/rumah-pintar">Next</a></p>
+            </div>
+        </article>
+
+        <br><br><br>
+
+        <article class="card" tabindex="0" aria-label="">
+            <img class="berita_pict" src="./foto/aceh.jpg" alt="Olahraga" loading="lazy"/>
+            <div class="card-body">
+                <h2>17 Hewan Eksotis Diseludupkan Melalui Laut Aceh Timur, Burung Macau Hingga Kelinci Patagonia</h2>
+                <p>Selain lima Motor Gede ada 17 hewan yang juga diselundupkan oleh SU dan MU melalui jalur laut Aceh Timur di Kecamatan Madat pada Minggu (15/6/2025). Pantauan Serambinews.com, ada 17 jumlah hewan eksotis yang dimasukkan kedalam sangkar, mulai dari burung macau, kelinci pantagonia, kambing kerdil atau Pygmy Goat, serta Ferret berbulu panjang atau biasa di sebut musang anggora.... <a href="https://sports.okezone.com/read/2025/06/15/43/3147484/daftar-pemain-timnas-voli-putra-indonesia-di-avc-nations-cup-2025-rivan-nurmulki-hingga-dio-zulfikri-siap-tempur">Next</a></p>
+            </div>
+        </article>
+
+    </section>
+    </main>
+
+    <br><br>
+
+    <footer class="footer"role="contentinfo">
+        <div class="container footer-content">
+            <p>&copy;2025 Imawebsite.All rights reserved.</p>
+            <nav aria-label="Social media">
+                <a href="#"class="social-link"aria-label="visit Ima Tiktok"><span class="material-icons-outlined">tiktok</span></a>
+                <a href="*"class="social-link"aria-label="visit Ima Facebook"><span class="material-icons-outlined">facebook</span></a>
+                <a href=""class="social-link"aria-label="visit Ima Instagram"><span class="material-icons-outlined">instagram</span></a>
+            </nav>
+        </div>
+    </footer>
+</body>
+</html>
